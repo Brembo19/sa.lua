@@ -53,8 +53,15 @@ local LogoImage = Instance.new("ImageLabel")
 LogoImage.Size = UDim2.new(0.6, 0, 0.6, 0)
 LogoImage.Position = UDim2.new(0.2, 0, 0.2, 0)
 LogoImage.BackgroundTransparency = 1
-LogoImage.Image = "rbxassetid://YOUR_IMAGE_ID" 
+LogoImage.Image = "rbxassetid://8652665149"
 LogoImage.Parent = DecorativeFrame
+
+local Button = Instance.new("ImageButton")
+Button.Size = UDim2.new(0.1, 0, 0.1, 0)
+Button.Position = UDim2.new(0, 0, 0.5, -25)
+Button.BackgroundTransparency = 1
+Button.Image = "rbxassetid://8652665149"
+Button.Parent = ScreenGui
 
 local isMenuVisible = true
 
@@ -63,10 +70,6 @@ local function toggleMenu()
     MainFrame.Visible = isMenuVisible
 end
 
-game:GetService("UserInputService").InputBegan:Connect(function(input)
-    if input.UserInputType == Enum.UserInputType.Keyboard and input.KeyCode == Enum.KeyCode.ButtonR2 then
-        toggleMenu()
-    end
-end)
+Button.MouseButton1Click:Connect(toggleMenu)
 
 MainFrame.Visible = isMenuVisible
