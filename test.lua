@@ -1,70 +1,66 @@
--- Създаване на основния ScreenGui
-local screenGui = Instance.new("ScreenGui")
-screenGui.Name = "CustomUI"
-screenGui.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
+-- Създаваме ScreenGui за менюто
+local ScreenGui = Instance.new("ScreenGui")
+ScreenGui.Name = "SlotsHubMenu"
+ScreenGui.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
 
--- Първи панел (Console)
-local consoleFrame = Instance.new("Frame")
-consoleFrame.Size = UDim2.new(0, 250, 0, 200)
-consoleFrame.Position = UDim2.new(0.1, 0, 0.1, 0)
-consoleFrame.BackgroundColor3 = Color3.fromRGB(50, 40, 100)  -- Тъмно-лилав цвят
-consoleFrame.BorderSizePixel = 2
-consoleFrame.BorderColor3 = Color3.fromRGB(90, 70, 180)  -- Светло-лилав цвят
-consoleFrame.Parent = screenGui
+-- Създаваме Frame, който ще е контейнер за елементите
+local MainFrame = Instance.new("Frame")
+MainFrame.Size = UDim2.new(0.5, 0, 0.3, 0) -- Размер (50% от ширината и 30% от височината на екрана)
+MainFrame.Position = UDim2.new(0.25, 0, 0.35, 0) -- Центрирано в екрана
+MainFrame.BackgroundColor3 = Color3.fromRGB(45, 45, 45) -- Тъмносив фон
+MainFrame.BackgroundTransparency = 0.1 -- Лека прозрачност
+MainFrame.BorderSizePixel = 0 -- Без рамки
+MainFrame.Parent = ScreenGui
+MainFrame.ClipsDescendants = true -- Заобляне на рамката
 
--- Текст за "Console" панела
-local consoleTitle = Instance.new("TextLabel")
-consoleTitle.Size = UDim2.new(1, 0, 0.15, 0)
-consoleTitle.Position = UDim2.new(0, 0, 0, 0)
-consoleTitle.BackgroundTransparency = 1
-consoleTitle.Text = "Console"
-consoleTitle.TextColor3 = Color3.fromRGB(255, 255, 255)
-consoleTitle.Font = Enum.Font.SourceSansBold
-consoleTitle.TextSize = 20
-consoleTitle.Parent = consoleFrame
+-- Заобляне на ъглите на MainFrame
+local UICorner = Instance.new("UICorner")
+UICorner.CornerRadius = UDim.new(0, 20) -- Радиус на заобляне
+UICorner.Parent = MainFrame
 
--- Примерен текст за съдържание в "Console" панела
-local consoleText = Instance.new("TextLabel")
-consoleText.Size = UDim2.new(1, 0, 0.85, 0)
-consoleText.Position = UDim2.new(0, 0, 0.15, 0)
-consoleText.BackgroundTransparency = 1
-consoleText.Text = "Stat: Going To mjw8035\nRun Time: 00:01:23\nCash Earned: $44,535\nCash Per Hour: $1,931,638\nKids Arrested: 4"
-consoleText.TextColor3 = Color3.fromRGB(255, 255, 255)
-consoleText.Font = Enum.Font.SourceSans
-consoleText.TextSize = 16
-consoleText.TextXAlignment = Enum.TextXAlignment.Left
-consoleText.TextYAlignment = Enum.TextYAlignment.Top
-consoleText.Parent = consoleFrame
+-- Създаваме заглавие "Slots Hub"
+local TitleLabel = Instance.new("TextLabel")
+TitleLabel.Size = UDim2.new(1, 0, 0.3, 0) -- Заглавието заема 30% от Frame-а
+TitleLabel.Position = UDim2.new(0, 0, 0, 0) -- Позиция на заглавието
+TitleLabel.BackgroundTransparency = 1 -- Без фон
+TitleLabel.Text = "Slots Hub"
+TitleLabel.Font = Enum.Font.GothamBold -- Модерен стил на шрифта
+TitleLabel.TextSize = 48 -- Голям размер на текста
+TitleLabel.TextColor3 = Color3.fromRGB(255, 255, 255) -- Бял текст
+TitleLabel.Parent = MainFrame
 
--- Втори панел (Log)
-local logFrame = Instance.new("Frame")
-logFrame.Size = UDim2.new(0, 250, 0, 150)
-logFrame.Position = UDim2.new(0.4, 0, 0.1, 0)
-logFrame.BackgroundColor3 = Color3.fromRGB(50, 40, 100)  -- Тъмно-лилав цвят
-logFrame.BorderSizePixel = 2
-logFrame.BorderColor3 = Color3.fromRGB(90, 70, 180)  -- Светло-лилав цвят
-logFrame.Parent = screenGui
+-- Добавяме сянка към заглавието за по-елегантен вид
+local TextStroke = Instance.new("UIStroke")
+TextStroke.Parent = TitleLabel
+TextStroke.Thickness = 1 -- Дебелина на сенката
+TextStroke.Color = Color3.fromRGB(0, 0, 0) -- Черна сянка
 
--- Текст за "Log" панела
-local logTitle = Instance.new("TextLabel")
-logTitle.Size = UDim2.new(1, 0, 0.2, 0)
-logTitle.Position = UDim2.new(0, 0, 0, 0)
-logTitle.BackgroundTransparency = 1
-logTitle.Text = "Log"
-logTitle.TextColor3 = Color3.fromRGB(255, 255, 255)
-logTitle.Font = Enum.Font.SourceSansBold
-logTitle.TextSize = 20
-logTitle.Parent = logFrame
+-- Добавяме визуален елемент (например лого или графика)
+local DecorativeFrame = Instance.new("Frame")
+DecorativeFrame.Size = UDim2.new(0.8, 0, 0.5, 0) -- Размер на декоративния елемент
+DecorativeFrame.Position = UDim2.new(0.1, 0, 0.4, 0) -- Централизиране
+DecorativeFrame.BackgroundColor3 = Color3.fromRGB(100, 100, 100) -- Лекосив фон
+DecorativeFrame.BackgroundTransparency = 0.5 -- Прозрачен елемент
+DecorativeFrame.Parent = MainFrame
 
--- Примерен текст за съдържание в "Log" панела
-local logText = Instance.new("TextLabel")
-logText.Size = UDim2.new(1, 0, 0.8, 0)
-logText.Position = UDim2.new(0, 0, 0.2, 0)
-logText.BackgroundTransparency = 1
-logText.Text = "Player Under Roof\nLoading Players"
-logText.TextColor3 = Color3.fromRGB(255, 255, 255)
-logText.Font = Enum.Font.SourceSans
-logText.TextSize = 16
-logText.TextXAlignment = Enum.TextXAlignment.Left
-logText.TextYAlignment = Enum.TextYAlignment.Top
-logText.Parent = logFrame
+-- Заобляне на ъглите на DecorativeFrame
+local DecorativeCorner = Instance.new("UICorner")
+DecorativeCorner.CornerRadius = UDim.new(0, 15) -- Заобляне на декоративния елемент
+DecorativeCorner.Parent = DecorativeFrame
+
+-- Добавяме плавни преходи за по-модерен вид
+local UIGradient = Instance.new("UIGradient")
+UIGradient.Color = ColorSequence.new{
+    ColorSequenceKeypoint.new(0, Color3.fromRGB(255, 255, 255)),
+    ColorSequenceKeypoint.new(1, Color3.fromRGB(200, 200, 200))
+} -- Преход между два нюанса на сивото
+UIGradient.Rotation = 45 -- Ротация на градиента
+UIGradient.Parent = DecorativeFrame
+
+-- Добавяме текстура или изображение като декоративен елемент (например лого)
+local LogoImage = Instance.new("ImageLabel")
+LogoImage.Size = UDim2.new(0.6, 0, 0.6, 0) -- Размер на изображението
+LogoImage.Position = UDim2.new(0.2, 0, 0.2, 0) -- Централно разположено в рамката
+LogoImage.BackgroundTransparency = 1 -- Без фон
+LogoImage.Image = "rbxassetid://YOUR_IMAGE_ID" -- Задай изображение чрез asset ID
+LogoImage.Parent = DecorativeFrame
