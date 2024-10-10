@@ -56,12 +56,22 @@ LogoImage.BackgroundTransparency = 1
 LogoImage.Image = "rbxassetid://8652665149"
 LogoImage.Parent = DecorativeFrame
 
-local Button = Instance.new("ImageButton")
-Button.Size = UDim2.new(0.1, 0, 0.1, 0)
-Button.Position = UDim2.new(0, 0, 0.5, -25)
-Button.BackgroundTransparency = 1
-Button.Image = "rbxassetid://8652665149"
-Button.Parent = ScreenGui
+local ToggleButton = Instance.new("ImageButton")
+ToggleButton.Size = UDim2.new(0.1, 0, 0.1, 0)
+ToggleButton.Position = UDim2.new(0, 0, 0.5, -25)
+ToggleButton.BackgroundTransparency = 1
+ToggleButton.Image = "rbxassetid://8652665149"
+ToggleButton.Parent = ScreenGui
+
+local CloseButton = Instance.new("TextButton")
+CloseButton.Size = UDim2.new(0.1, 0, 0.1, 0)
+CloseButton.Position = UDim2.new(0.9, 0, 0, 0) 
+CloseButton.BackgroundColor3 = Color3.fromRGB(255, 0, 0) 
+CloseButton.Text = "X"
+CloseButton.Font = Enum.Font.GothamBold
+CloseButton.TextSize = 24
+CloseButton.TextColor3 = Color3.fromRGB(255, 255, 255)
+CloseButton.Parent = MainFrame
 
 local isMenuVisible = true
 
@@ -70,6 +80,11 @@ local function toggleMenu()
     MainFrame.Visible = isMenuVisible
 end
 
-Button.MouseButton1Click:Connect(toggleMenu)
+local function closeMenu()
+    ScreenGui:Destroy()
+end
+
+ToggleButton.MouseButton1Click:Connect(toggleMenu)
+CloseButton.MouseButton1Click:Connect(closeMenu)
 
 MainFrame.Visible = isMenuVisible
