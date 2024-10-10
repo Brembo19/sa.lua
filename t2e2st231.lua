@@ -65,13 +65,36 @@ ToggleButton.Parent = ScreenGui
 
 local CloseButton = Instance.new("TextButton")
 CloseButton.Size = UDim2.new(0.1, 0, 0.1, 0)
-CloseButton.Position = UDim2.new(0.9, 0, 0, 0) 
-CloseButton.BackgroundColor3 = Color3.fromRGB(255, 0, 0) 
+CloseButton.Position = UDim2.new(0.9, 0, 0, 0)
+CloseButton.BackgroundColor3 = Color3.fromRGB(255, 0, 0)
 CloseButton.Text = "X"
 CloseButton.Font = Enum.Font.GothamBold
 CloseButton.TextSize = 24
 CloseButton.TextColor3 = Color3.fromRGB(255, 255, 255)
 CloseButton.Parent = MainFrame
+
+local CloseCorner = Instance.new("UICorner")
+CloseCorner.CornerRadius = UDim.new(0, 15)
+CloseCorner.Parent = CloseButton
+
+local function styleButton(button)
+    button.BackgroundColor3 = Color3.fromRGB(50, 50, 50)
+    button.TextColor3 = Color3.fromRGB(255, 255, 255)
+    button.Font = Enum.Font.GothamBold
+    button.TextSize = 20
+    button.BorderSizePixel = 0
+
+    local ButtonCorner = Instance.new("UICorner")
+    ButtonCorner.CornerRadius = UDim.new(0, 15)
+    ButtonCorner.Parent = button
+
+    local ButtonStroke = Instance.new("UIStroke")
+    ButtonStroke.Thickness = 2
+    ButtonStroke.Color = Color3.fromRGB(0, 0, 0)
+    ButtonStroke.Parent = button
+end
+
+styleButton(CloseButton)
 
 local isMenuVisible = true
 
